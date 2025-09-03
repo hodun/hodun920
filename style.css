@@ -6,6 +6,19 @@ body {
   line-height: 1.6;
 }
 
+.nav-toggle {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 1100;
+  background: #0070c9;
+  color: #fff;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
 .header {
   position: fixed;
   top: 0;
@@ -108,12 +121,10 @@ section {
 }
 
 .item-list li {
-  margin: 0;
+  margin-bottom: 20px;
 }
 
 .item-list li a {
-  text-decoration: none;
-  color: inherit;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -143,6 +154,13 @@ section {
   width: 100%;
   max-width: 800px;
   border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+.article-image {
+  width: 100%;
+  max-width: 600px;
+  border-radius: 8px;
   margin-bottom: 20px;
 }
 

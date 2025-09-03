@@ -5,31 +5,92 @@ body {
   color: #000000;
 }
 
-.navbar {
-  display: flex;
-  justify-content: center;
-  background-color: #fff;
-  border-bottom: 1px solid #e5e5e5;
-  padding: 10px 0;
-  position: sticky;
-  top: 0;
+.nav-toggle {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 1100;
+  background: #0070c9;
+  color: #fff;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
-.navbar a {
-  margin: 0 15px;
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: #fff;
+  border-bottom: 1px solid #e5e5e5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s;
+  z-index: 1000;
+}
+
+.header.hide {
+  transform: translateY(-100%);
+}
+
+.site-title a {
   text-decoration: none;
   color: #000;
-  font-weight: 500;
 }
 
-.navbar a:hover {
-  color: #0070c9;
+.sidebar {
+  position: fixed;
+  top: 60px;
+  left: 0;
+  bottom: 0;
+  width: 200px;
+  background: #f7f7f7;
+  border-right: 1px solid #e5e5e5;
+  padding-top: 20px;
+  transition: transform 0.3s;
+  z-index: 999;
+}
+
+.sidebar.hide,
+.sidebar.collapsed {
+  transform: translateX(-100%);
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar li {
+  margin: 10px 0;
+}
+
+.sidebar a {
+  display: block;
+  padding: 8px 20px;
+  text-decoration: none;
+  color: #000;
+}
+
+.sidebar a:hover {
+  background: #e5e5e5;
 }
 
 main {
+  margin-top: 60px;
+  margin-left: 200px;
+  padding: 20px;
+  transition: margin-left 0.3s;
   max-width: 900px;
-  margin: 0 auto;
-  padding: 40px 20px;
+}
+
+body.sidebar-collapsed main {
+  margin-left: 0;
 }
 
 section {
@@ -42,9 +103,14 @@ section {
 }
 
 .item-list li {
+  margin-bottom: 20px;
+}
+
+.item-list li a {
   display: flex;
   align-items: center;
-  margin-bottom: 20px;
+  text-decoration: none;
+  color: inherit;
 }
 
 .item-list img {
@@ -64,8 +130,21 @@ section {
   margin-right: 20px;
 }
 
+.article-image {
+  width: 100%;
+  max-width: 600px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
 footer {
   text-align: center;
   padding: 20px 0;
   border-top: 1px solid #e5e5e5;
+  margin-left: 200px;
+  transition: margin-left 0.3s;
+}
+
+body.sidebar-collapsed footer {
+  margin-left: 0;
 }
